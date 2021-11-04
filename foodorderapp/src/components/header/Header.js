@@ -1,5 +1,5 @@
-import HeaderCartButton from './HeaderCartButton';
-import mealsImage from '../../assets/meals.jpg';
+import HeaderCartButton from '../headercartbutton/HeaderCartButton';
+import mealsImg from '../../assets/meals.jpg';
 import './Header.css';
 
 const Header = (props) => {
@@ -10,7 +10,7 @@ const Header = (props) => {
         <HeaderCartButton />
       </header>
       <div className='main-image'>
-        <img src={mealsImage} alt='A table full of delicious food!' />
+        <img src={mealsImg} alt='A table full of delicious food!' />
       </div>
     </>
   );
