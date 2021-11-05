@@ -2,7 +2,7 @@ import React from 'react'
 import './MealItem.css'
 import MealItemForm from '../mealitemform/MealItemForm'
 
-const MealItem = ({ name, description, price }) => {
+const MealItem = ({ name, description, price, id }) => {
 
   const prices = `$${price.toFixed(2)}`
   return (
@@ -13,7 +13,7 @@ const MealItem = ({ name, description, price }) => {
         <div className='price'>{prices}</div>
       </div>
       <div>
-        <MealItemForm />
+        <MealItemForm id={id} />
       </div>
     </li>
   )
