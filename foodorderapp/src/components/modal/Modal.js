@@ -13,7 +13,6 @@ const ModalOverlay = ({ children }) => {
   )
 }
 
-let portalElement = document.getElementById('overlay')
 
 const Modal = ({ children }) => {
   return (
