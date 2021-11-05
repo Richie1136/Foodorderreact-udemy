@@ -41,7 +41,6 @@ const AvaliableMeals = () => {
           {mealsList}
         </Card>
       </ul>
-
     </section>
   )
 }
