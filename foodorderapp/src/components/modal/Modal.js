@@ -1,15 +1,26 @@
-import React from 'react'
-import Card from '../card/Card'
 import './Modal.css'
-import reactDom from 'react-dom'
+import ReactDOM from 'react-dom'
 
+const Backdrop = () => {
+  return <div className='backdrop' />
+}
 
-const Modal = () => {
+const ModalOverlay = ({ children }) => {
   return (
-    <div>
-      Modal
+    <div className='modal'>
+      <div className='content'>{children}</div>
     </div>
   )
 }
 
+let portalElement = document.getElementById('overlay')
+
+const Modal = ({ children }) => {
+  return (
+    <>
+      {ReactDOM.createPortal(<Backdrop />, document.getElementById('overlay'))}
+      {ReactDOM.createPortal(<ModalOverlay children={children} />, document.getElementById('overlay'))}
+    </>
+  )
+}
 export default Modal
