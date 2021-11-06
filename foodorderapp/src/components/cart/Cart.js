@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import './Cart.css'
 import Modal from '../modal/Modal'
 import CartContext from '../../store/cart-context'
+import CartItem from '../cartitem/CartItem'
 
 const Cart = ({ onClose }) => {
   const cartContext = useContext(CartContext)
@@ -10,7 +11,17 @@ const Cart = ({ onClose }) => {
 
   const hasItems = cartContext.items.length > 0
 
-  const cartItems = <ul className='cart-items'>{cartContext.items.map((item) => <li key={item.key}>{item.name}</li>)}</ul>
+  const cartItemRemove = (id) => {
+  }
+
+  const cartItemAdd = (item) => {
+  }
+
+  const cartItems = <ul className='cart-items'>{cartContext.items.map((item) => (
+    <CartItem key={item.id} name={item.name} amount={item.amount} price={item.price} onAdd={cartItemAdd} onRemove={cartItemRemove} />
+  ))}
+  </ul>
+
   return (
     <Modal onClose={onClose}>
       {cartItems}
