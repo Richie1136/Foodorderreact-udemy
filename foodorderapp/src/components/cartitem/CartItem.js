@@ -4,11 +4,11 @@ const CartItem = ({ price, name, amount, onRemove, onAdd }) => {
   const prices = `$${price.toFixed(2)}`;
 
   return (
-    <li className='cart-item'>
+    <li className={classes['cart-item']}>
       <div>
         <h2>{name}</h2>
         <div className={classes.summary}>
-          <span className={classes.price}>{price}</span>
+          <span className={classes.price}>{prices}</span>
           <span className={classes.amount}>x {amount}</span>
         </div>
       </div>
@@ -21,3 +21,5 @@ const CartItem = ({ price, name, amount, onRemove, onAdd }) => {
 };
 
 export default CartItem;
+
+
