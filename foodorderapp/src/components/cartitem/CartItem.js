@@ -1,18 +1,18 @@
-import './CartItem.css';
+import classes from './CartItem.module.css';
 
-const CartItem = ({ price, amount, onAdd, onRemove, name }) => {
+const CartItem = ({ price, name, amount, onRemove, onAdd }) => {
   const prices = `$${price.toFixed(2)}`;
 
   return (
-    <li className={'cart-item'}>
+    <li className='cart-item'>
       <div>
         <h2>{name}</h2>
-        <div className='summary'>
-          <span className='price'>{prices}</span>
-          <span className='amount'>x {amount}</span>
+        <div className={classes.summary}>
+          <span className={classes.price}>{price}</span>
+          <span className={classes.amount}>x {amount}</span>
         </div>
       </div>
-      <div className='actions'>
+      <div className={classes.actions}>
         <button onClick={onRemove}>−</button>
         <button onClick={onAdd}>+</button>
       </div>
