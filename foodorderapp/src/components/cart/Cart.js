@@ -8,6 +8,8 @@ const Cart = ({ onClose }) => {
 
   const totalAmount = `$${cartContext.totalAmount.toFixed(2)}`
 
+  const hasItems = cartContext.items.length > 0
+
   const cartItems = <ul className='cart-items'>{cartContext.items.map((item) => <li key={item.key}>{item.name}</li>)}</ul>
   return (
     <Modal onClose={onClose}>
@@ -18,9 +20,9 @@ const Cart = ({ onClose }) => {
       </div>
       <div className='actions'>
         <button className='button--alt' onClick={onClose}>Close</button>
-        <button className='button'>Order</button>
+        {hasItems && <button className='button'>Order</button>}
       </div>
-    </Modal>
+    </Modal >
   )
 }
 
