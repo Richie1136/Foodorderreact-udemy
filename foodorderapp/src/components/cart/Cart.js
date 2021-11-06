@@ -12,6 +12,7 @@ const Cart = ({ onClose }) => {
   const hasItems = cartContext.items.length > 0
 
   const cartItemRemove = (id) => {
+    cartContext.removeItem(id)
   }
 
   const cartItemAdd = (item) => {
