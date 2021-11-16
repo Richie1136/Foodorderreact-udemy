@@ -2,9 +2,14 @@ import './Checkout.css'
 
 
 const Checkout = ({ onClose }) => {
+
+  const handleConfirm = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <div>
-      <form>
+      <form className='form' onSubmit={handleConfirm}>
         <div className='control'>
           <label htmlFor='name'>Your Name</label>
           <input type='text' id='name' />
@@ -21,11 +26,14 @@ const Checkout = ({ onClose }) => {
           <label htmlFor='city'>City</label>
           <input type='text' id='city' />
         </div>
-        <button type='submit'>Confirm</button>
-        <button type='button' onClick={onClose}>Cancel</button>
+        <div className='actions'>
+          <button className='submit' type='submit'>Confirm</button>
+          <button type='button' onClick={onClose}>Cancel</button>
+        </div>
       </form>
     </div>
   )
+
 }
 
 export default Checkout
