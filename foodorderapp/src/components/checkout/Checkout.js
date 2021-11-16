@@ -32,6 +32,9 @@ const Checkout = ({ onClose }) => {
     const enteredcityIsValid = !isEmpty(enteredcity)
     const enteredzipIsValid = is5Chars(enteredzip)
 
+    const enterednameIsInValid = !enterednameIsValid
+    const nameClass = enterednameIsInValid ? 'control invalid' : 'control'
+
     setName(enterednameIsValid)
     setAddress(enteredaddressIsValid)
     setZipCode(enteredzipIsValid)
@@ -47,25 +50,27 @@ const Checkout = ({ onClose }) => {
     }
   }
 
+
+
   return (
     <div>
       <form className='form' onSubmit={handleConfirm}>
-        <div className='control'>
+        <div className={`control ${name ? '' : 'invalid'}`}>
           <label htmlFor='name'>Your Name</label>
           <input type='text' id='name' ref={nameInput} />
           {!name && <p>Please enter a valid name</p>}
         </div>
-        <div className='control'>
+        <div className={`control ${address ? '' : 'invalid'}`}>
           <label htmlFor='address'>Address</label>
           <input type='text' id='address' ref={addressInput} />
           {!address && <p>Please enter a valid Address</p>}
         </div>
-        <div className='control'>
+        <div className={`control ${zipcode ? '' : 'invalid'}`}>
           <label htmlFor='zipcode'>Zip Code</label>
           <input type='text' id='zipcode' ref={zipcodeInput} />
           {!zipcode && <p>Please enter a valid Zip Code</p>}
         </div>
-        <div className='control'>
+        <div className={`control ${city ? '' : 'invalid'}`}>
           <label htmlFor='city'>City</label>
           <input type='text' id='city' ref={cityInput} />
           {!city && <p>Please enter a valid City</p>}
