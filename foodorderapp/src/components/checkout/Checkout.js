@@ -1,7 +1,7 @@
 import './Checkout.css'
 
 
-const Checkout = () => {
+const Checkout = ({ onClose }) => {
   return (
     <div>
       <form>
@@ -22,7 +22,7 @@ const Checkout = () => {
           <input type='text' id='city' />
         </div>
         <button type='submit'>Confirm</button>
-        <button type='button'>Cancel</button>
+        <button type='button' onClick={onClose}>Cancel</button>
       </form>
     </div>
   )
