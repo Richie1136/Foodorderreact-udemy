@@ -12,6 +12,10 @@ const AvaliableMeals = () => {
       try {
         setLoading(true)
         const response = await fetch('https://react-foodapp-ac153-default-rtdb.firebaseio.com/meals.json')
+        if (!response.ok) {
+
+        }
+
         const data = await response.json()
         const loadedMeals = []
 
@@ -24,6 +28,7 @@ const AvaliableMeals = () => {
           })
         }
         setMeals(loadedMeals)
+        setLoading(false)
       } catch (err) {
         return err
       }
@@ -31,6 +36,12 @@ const AvaliableMeals = () => {
     fetchMeals()
 
   }, [])
+
+  if (loading) {
+    return <section className='mealsLoading'>
+      <p>Loading...</p>
+    </section>
+  }
 
   const mealsList = meals.map((meal) => (
     <MealItem
