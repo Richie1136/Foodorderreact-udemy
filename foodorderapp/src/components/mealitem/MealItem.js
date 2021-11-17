@@ -7,20 +7,18 @@ const MealItem = ({ name, description, price, id }) => {
   const cartContext = useContext(CartContext)
   const handleAddToCart = (amount) => {
     cartContext.addItem({
-      id: id,
-      name: name,
-      amount: amount,
-      price: price
+      id, name, amount, price
     })
   }
+  // const priced = `$${price.toFixed(2)}`
 
-  const prices = `$${price.toFixed(2)}`
+
   return (
     <li className='meal'>
       <div>
         <h3>{name}</h3>
         <div className='description'>{description}</div>
-        <div className='price'>{prices}</div>
+        <div className='price'>{price}</div>
       </div>
       <div>
         <MealItemForm onAddToCart={handleAddToCart} />
