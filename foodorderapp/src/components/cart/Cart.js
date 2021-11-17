@@ -26,6 +26,13 @@ const Cart = ({ onClose }) => {
   }
 
   const submitOrder = (data) => {
+    fetch('https://react-foodapp-ac153-default-rtdb.firebaseio.com/meals.json', {
+      method: 'POST',
+      body: JSON.stringify({
+        user: data,
+        orderedFood: cartContext.items
+      })
+    })
 
   }
 
