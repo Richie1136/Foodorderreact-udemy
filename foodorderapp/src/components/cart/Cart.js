@@ -25,6 +25,10 @@ const Cart = ({ onClose }) => {
     setCheckout(true)
   }
 
+  const submitOrder = (data) => {
+
+  }
+
   const cartItems = <ul className='cart-items'>{cartContext.items.map((item) => (
     <CartItem key={item.id} name={item.name} amount={item.amount} price={item.price} onAdd={cartItemAdd.bind(null, item)} onRemove={cartItemRemove.bind(null, item.id)} />
   ))}
@@ -42,7 +46,7 @@ const Cart = ({ onClose }) => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      {checkout && <Checkout onClose={onClose} />}
+      {checkout && <Checkout onSubmit={submitOrder} onClose={onClose} />}
       {!checkout && modalActions}
     </Modal >
   )

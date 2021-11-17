@@ -6,7 +6,7 @@ import { useRef, useState } from 'react'
 const isEmpty = (value => value.trim().length === 0)
 const is5Chars = (value => value.trim().length === 5)
 
-const Checkout = ({ onClose }) => {
+const Checkout = ({ onClose, onSubmit }) => {
 
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
@@ -58,6 +58,9 @@ const Checkout = ({ onClose }) => {
     if (!formIsValid) {
       return
     }
+    onSubmit({
+      name, address, zipcode, city
+    })
   }
 
 
