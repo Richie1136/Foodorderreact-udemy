@@ -28,13 +28,13 @@ const Cart = ({ onClose }) => {
     setCheckout(true)
   }
 
-  const submitOrder = async (data) => {
+  const submitOrder = async (userData) => {
     try {
       setSubmitting(true)
       await fetch('https://react-foodapp-ac153-default-rtdb.firebaseio.com/meals.json', {
         method: 'POST',
         body: JSON.stringify({
-          user: data,
+          user: userData,
           orderedFood: cartContext.items
         })
       })
